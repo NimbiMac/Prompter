@@ -71,6 +71,7 @@
         <h1>GPT Prompt Builder using RISEN</h1>
         <button onclick="randomRisenPrompts()">Test Data</button>
         <button onclick="ppExample()">Power Platform Form Function Example</button>
+        <button onclick="clearFields()">Clear Form</button>
         <form id="risenForm">
             <label for="role">Role (R):</label>
             <input type="text" id="role" name="role" placeholder="Enter the role for GPT" required>
@@ -102,7 +103,16 @@
 
 
 
-
+        function clearFields() {
+            document.getElementById('role').value = '';
+            document.getElementById('instructions').value = '';
+            document.getElementById('steps').value = '';
+            document.getElementById('endGoal').value = '';
+            document.getElementById('narrowing').value = '';
+            document.getElementById('gennedPromt').innerHTML = '';
+            document.getElementById('notifyButton').setAttribute('disabled', 'true');
+            document.getElementById('notifyButton').setAttribute('title', 'First generate a prompt in order to copy');
+        }
 
         function copyText() {
             var textToCopyElement = document.getElementById("gennedPromt");
