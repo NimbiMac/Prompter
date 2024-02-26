@@ -93,7 +93,7 @@
         </form>
         <p id="gennedPromt"></p>
         <!-- <button onclick="copyText()" title="Copy Text"><i class="fa-solid fa-copy"></i></button> -->
-        <button id="notifyButton" onclick="copyText()">Copy Prompt</button>
+        <button id="notifyButton" onclick="copyText()" title="First generate a prompt in order to copy" disabled>Copy Prompt</button>
         <div id="notificationContainer"></div>
 
     </div>
@@ -163,6 +163,8 @@ You will describe each part of the function and explain what it does.`
 
             // Here you can handle the compiled prompt, e.g., displaying it, logging it, or sending it to GPT
             document.getElementById("gennedPromt").innerHTML = prompt;
+            document.getElementById('notifyButton').removeAttribute('disabled');
+            document.getElementById('notifyButton').removeAttribute('title');
         });
 
         // display notification - button click event listener
