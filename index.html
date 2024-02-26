@@ -70,6 +70,7 @@
     <div class="container">
         <h1>GPT Prompt Builder using RISEN</h1>
         <button onclick="randomRisenPrompts()">Test Data</button>
+        <button onclick="ppExample()">Power Platform Form Function Example</button>
         <form id="risenForm">
             <label for="role">Role (R):</label>
             <input type="text" id="role" name="role" placeholder="Enter the role for GPT" required>
@@ -101,15 +102,29 @@
 
 
 
-       
+
 
         function copyText() {
             var textToCopyElement = document.getElementById("gennedPromt");
             var textToCopy = textToCopyElement.innerText;
             navigator.clipboard.writeText(textToCopy);
-            
+
         }
 
+        function ppExample() {
+            const role = "A power platform developer";
+            const instructions = "You will help me build a javascript function to be used on a model driven power app form. You will give examples of the functions and how they can be used to interact with and edit the values on the form."
+            const steps = `You will use examples which connect with the executionContext and formContext. 
+You will describe each part of the function and explain what it does.`
+            const endGoal = `I want to have a function that will check the value of a text field called "nimbi_status" on a form and if the value is equal to "Completed", you will make a control with logical name "nimbi_comments" visible. For any other value in the control, hide the "nimbi_comments" field. `
+            const narrowing = `Don't use any reference to getPageContext and only use executionContext.getFormContext.`
+
+            document.getElementById('role').value = role;
+            document.getElementById('instructions').value = instruction;
+            document.getElementById('steps').value = step;
+            document.getElementById('endGoal').value = endGoal;
+            document.getElementById('narrowing').value = narrowing;
+        }
         function randomRisenPrompts() { //  gpt'd arrays of examples for each part of the RISEN prompt  
             var roles = ["a customer service representative", "a technical support agent", "a salesperson", "a teacher", "a doctor", "a lawyer", "a police officer", "a firefighter", "a chef", "a personal trainer", "a financial advisor", "a real estate agent", "a travel agent", "a tour guide", "a flight attendant", "a hotel concierge", "a car salesperson", "a mechanic", "a plumber", "an electrician", "a carpenter", "a painter", "a gardener", "a cleaner", "a babysitter", "a pet sitter", "a dog walker", "a personal assistant", "a housekeeper", "a nanny", "a tutor", "a coach", "a mentor", "a therapist", "a counselor", "a social worker", "a nurse", "a paramedic", "a pharmacist", "a dentist", "a veterinarian", "a scientist", "an engineer", "a programmer", "a designer", "an artist", "a musician", "a writer", "a journalist", "a photographer", "a filmmaker", "an actor", "a model", "a dancer", "a singer", "a comedian", "a podcaster", "a YouTuber", "a streamer", "a gamer", "a cosplayer", "a chef", "a food critic", "a food blogger", "a food photographer", "a food stylist", "a food scientist", "a food historian", "a food anthropologist", "a food sociologist", "a food psychologist", "a food philosopher", "a food economist", "a food lawyer", "a food policy analyst", "a food lobbyist", "a food marketer", "a food distributor", "a food retailer", "a food wholesaler", "a food importer", "a food exporter", "a food manufacturer", "a food processor", "a food packager", "a food shipper", "a food transporter", "a food storage operator", "a food warehouse operator", "a food inspector", "a food safety officer", "a food quality control officer", "a food waste manager", "a food recycling manager", "a food composting manager", "a food disposal manager", "a food incineration manager", "a food landfill manager", "a food waste collector", "a food recycling collector"];
             var instructions = ["to provide a customer with a refund", "to help a customer troubleshoot a technical issue", "to sell a product to a customer", "to teach a student a new concept", "to diagnose a patient's illness", "to represent a client in a legal matter", "to enforce the law and maintain public safety", "to respond to an emergency and save lives", "to prepare and serve a meal to a customer", "to help a client achieve their fitness goals", "to provide financial advice to a client", "to help a client buy or sell a property", "to help a client plan and book a trip", "to guide a group of tourists on a sightseeing tour", "to assist passengers during a flight", "to provide personalized service to hotel guests", "to sell a car to a customer", "to repair a vehicle for a customer", "to fix a plumbing issue for a customer", "to install or repair electrical systems for a customer", "to build or repair structures for a customer", "to paint or decorate a space for a customer", "to maintain or design a garden for a customer", "to clean or organize a space for a customer", "to care for a child in the absence of their parents", "to care for a pet in the absence of its owner", "to walk a dog for its owner", "to assist an individual with their daily tasks", "to clean and maintain a household", "to provide educational support to a student", "to coach or train an individual in a specific skill", "to provide guidance and support to an individual", "to provide therapy or counseling to an individual", "to provide medical care to patients", "to respond to medical emergencies and provide care", "to dispense medication and provide pharmaceutical care", "to provide dental care to patients", "to provide veterinary care to animals", "to conduct scientific research and experiments", "to design and build technological solutions", "to create visual and functional designs", "to create visual or performing arts", "to write and publish written works", "to report and analyze news and events", "to capture and edit visual content", "to perform in front of an audience", "to model clothing and accessories", "to perform choreographed movements", "to sing and perform music", "to entertain and make people laugh", "to create and share audio content", "to create and share video content", "to stream live content online"];
@@ -165,7 +180,7 @@
 
             // Position the notification at the bottom-right of the button
             // Adjust these values to align it as needed
-            notification.style.top = (buttonRect.top - containerRect.top ) + 'px';
+            notification.style.top = (buttonRect.top - containerRect.top) + 'px';
             notification.style.left = (buttonRect.left - containerRect.left + buttonRect.width + 5) + 'px'; // 5px to the right of the button
             notification.style.display = 'block';
 
