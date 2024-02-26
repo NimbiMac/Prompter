@@ -107,9 +107,7 @@
             var textToCopyElement = document.getElementById("gennedPromt");
             var textToCopy = textToCopyElement.innerText;
             navigator.clipboard.writeText(textToCopy);
-            setTimeout(() => {
-                alert("Copied to clipboard")
-            }, 1);
+            
         }
 
         function randomRisenPrompts() { //  gpt'd arrays of examples for each part of the RISEN prompt  
@@ -156,7 +154,7 @@
         document.getElementById('notifyButton').addEventListener('click', function () {
             var notification = document.createElement('div');
             notification.className = 'notification';
-            notification.textContent = 'Clicked!';
+            notification.textContent = 'Copied to Clipboard!';
 
             var container = document.getElementById('notificationContainer');
             container.appendChild(notification);
