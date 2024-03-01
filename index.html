@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg" href="favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
     <title>GPT Prompt Builder using RISEN</title>
     <style>
         body {
@@ -69,10 +70,11 @@
 
 <body>
     <div class="container">
+        <fluent-button appearance="accent" onclick="testFunc()" >Hello world</fluent-button>
         <h1>GPT Prompt Builder using RISEN</h1>
-        <button onclick="randomRisenPrompts()">Test Data</button>
-        <button onclick="ppExample()">Power Platform Form Function Example</button>
-        <button onclick="clearFields()">Clear Form</button>
+        <fluent-button appearance="primary" onclick="randomRisenPrompts()">Test Data</fluent-button>
+        <fluent-button appearance="accent" onclick="ppExample()">Power Platform Form Function Example</fluent-button>
+        <fluent-button appearance="accent" onclick="clearFields()">Clear Form</fluent-button>
         <form id="risenForm">
             <label for="role">Role (R):</label>
             <input type="text" id="role" name="role" placeholder="Enter the role for GPT" required>
@@ -103,7 +105,10 @@
 
     <script>
 
-        import { FluentAnchor } from '@fluentui/web-components';
+        // import { FluentAnchor } from '@fluentui/web-components';
+        function testFunc() {
+            window.alert('Hello world');
+        }
 
         function clearFields() {
             document.getElementById('role').value = '';
