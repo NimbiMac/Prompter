@@ -95,14 +95,15 @@
         </form>
         <p id="gennedPromt"></p>
         <!-- <button onclick="copyText()" title="Copy Text"><i class="fa-solid fa-copy"></i></button> -->
-        <button id="notifyButton" onclick="copyText()" title="First generate a prompt in order to copy" disabled>Copy Prompt</button>
+        <button id="notifyButton" onclick="copyText()" title="First generate a prompt in order to copy" disabled>Copy
+            Prompt</button>
         <div id="notificationContainer"></div>
 
     </div>
 
     <script>
 
-
+        import { FluentAnchor } from '@fluentui/web-components';
 
         function clearFields() {
             document.getElementById('role').value = '';
